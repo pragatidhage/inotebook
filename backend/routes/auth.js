@@ -87,7 +87,7 @@ router.post(
       if (!passwordCompare) {
         success = false;
         return res
-          .staus(400)
+          .status(400)
           .json({ success, error: "Enter Valid credentials" });
       }
       const data = {
