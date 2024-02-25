@@ -12,7 +12,7 @@ const Login = (props) => {
     const response = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
       headers: {
-        "Accept": "application/json",
+        
         "Content-Type": "application/json"
         
       },
@@ -24,8 +24,9 @@ const Login = (props) => {
     if (json.success){
         //save the auth token and redirect
         localStorage.setItem('token',json.authtoken)
-        history("/")
         props.showAlert("Logged in successfully","success");
+        history("/")
+        
 
     }
     else{
@@ -39,7 +40,8 @@ const Login = (props) => {
   };
 
   return (
-    <div>
+    <div className="container mt-3">
+       <h2 className="my-1">Login to continue</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
